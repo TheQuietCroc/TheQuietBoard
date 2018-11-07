@@ -30,3 +30,6 @@ tar.gz
 .classpath
 .project
 */.settings/
+
+# Properties files
+dev.properties

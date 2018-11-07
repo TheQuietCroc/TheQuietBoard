@@ -1,5 +1,10 @@
 package com.TheQuietCroc.TheQuietBoard.singletons;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 import static spark.Spark.redirect;
 import static spark.Spark.staticFileLocation;
 
@@ -9,9 +14,14 @@ import static spark.Spark.staticFileLocation;
 
 public abstract class SparkServer {
 
-    private static String OAUTH_CLIENT_ID = "XXX";
+    public static void init() throws IOException {
+        final Properties mavenProps = new Properties();
+        final InputStream in = new FileInputStream("dev.properties");
 
-    public static void init() {
+        mavenProps.load(in);
+
+        final String OAUTH_CLIENT_ID = mavenProps.getProperty("oauth_id");
+
         staticFileLocation("/public");
 
         final StringBuilder streamerOauthPerms = new StringBuilder();
