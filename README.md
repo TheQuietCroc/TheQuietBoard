@@ -8,6 +8,9 @@ The development of this board will start with four phases.
 [Setup phase]
 * Get Mixer libraries set up
 * Get button classes set up
+* Get UI set up
+* Get SQLite set up
+* Get Spark server set up
 
 [Phase 1]
 * Allow streamers to create paginated controls
